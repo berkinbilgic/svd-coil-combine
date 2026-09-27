@@ -1,0 +1,21 @@
+/autofs/homes/009/berkin/Downloads/bart-0.2.06/src/grecon/grecon.o: \
+ /autofs/homes/009/berkin/Downloads/bart-0.2.06/src/grecon/grecon.c \
+ /autofs/homes/009/berkin/Downloads/bart-0.2.06/src/sense/recon.h \
+ /autofs/homes/009/berkin/Downloads/bart-0.2.06/src/misc/mri.h \
+ /autofs/homes/009/berkin/Downloads/bart-0.2.06/src/iter/iter.h \
+ /autofs/homes/009/berkin/Downloads/bart-0.2.06/src/sense/pocs.h \
+ /autofs/homes/009/berkin/Downloads/bart-0.2.06/src/iter/iter2.h \
+ /autofs/homes/009/berkin/Downloads/bart-0.2.06/src/sense/optcom.h \
+ /autofs/homes/009/berkin/Downloads/bart-0.2.06/src/noir/recon.h \
+ /autofs/homes/009/berkin/Downloads/bart-0.2.06/src/num/multind.h \
+ /autofs/homes/009/berkin/Downloads/bart-0.2.06/src/num/flpmath.h \
+ /autofs/homes/009/berkin/Downloads/bart-0.2.06/src/num/fft.h \
+ /autofs/homes/009/berkin/Downloads/bart-0.2.06/src/num/ops.h \
+ /autofs/homes/009/berkin/Downloads/bart-0.2.06/src/num/gpuops.h \
+ /autofs/homes/009/berkin/Downloads/bart-0.2.06/src/wavelet2/wavelet.h \
+ /autofs/homes/009/berkin/Downloads/bart-0.2.06/src/calib/calib.h \
+ /autofs/homes/009/berkin/Downloads/bart-0.2.06/src/misc/misc.h \
+ /autofs/homes/009/berkin/Downloads/bart-0.2.06/src/misc/debug.h \
+ /autofs/homes/009/berkin/Downloads/bart-0.2.06/src/misc/utils.h \
+ /autofs/homes/009/berkin/Downloads/bart-0.2.06/src/grecon/parslices.h \
+ /autofs/homes/009/berkin/Downloads/bart-0.2.06/src/grecon/grecon.h

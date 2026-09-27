@@ -1,0 +1,206 @@
+
+See LICENSE file for licensing information.
+
+-------------------------------------------------------------------------------
+
+
+The tools in this software implement various reconstruction algorithms. 
+Please cite the corresponding articles when using these tools for research.
+Some references can be found at the end of this file. The source code might
+provide more detailed references, e.g. for specific iterative algorithms.
+
+
+Please direct all questions or comments to the public mailing list:
+
+	mrirecon@lists.eecs.berkeley.edu
+
+	https://lists.eecs.berkeley.edu/sympa/info/mrirecon
+
+
+Note: This list has a public archive! Please do not send
+any confidential information.
+
+
+
+Updates and further information can be found here:
+
+http://www.eecs.berkeley.edu/~uecker/toolbox.html
+
+
+
+
+
+
+
+
+Prerequesites:
+
+GCC compiler, the FFTW, GSL (or ACML) libraries and optionally 
+a CUDA Implementation (see recon/Makefile to turn these
+options on or off)
+
+The software can be used in combination with Matlab or octave.
+
+
+
+Linux:
+
+The software tools in recon should run on any recent Linux distribution.
+
+To install the required libraries on Debian and Ubuntu run:
+
+sudo apt-get install libfftw3-dev
+sudo apt-get install libgsl0-dev
+sudo apt-get install liblapack-dev
+
+(optional)
+sudo apt-get install octave
+
+(optional)
+install the ISMRM Raw Data format library (http://ismrmrd.sourceforge.net/).
+
+
+
+Mac OS X: 
+
+Xcode is required and it is recommended to install a newer version 
+of gcc (4.7 seems to work) from MacPorts (http://www.macports.org/).
+
+
+sudo port install fftw-3-single
+sudo port install gsl
+sudo port install gcc47
+sudo port select --set gcc mp-gcc47
+
+(optional)
+sudo apt-get install octave
+
+(optional)
+install the ISMRM Raw Data format library (http://ismrmrd.sourceforge.net/).
+
+
+
+
+
+Organization:
+
+.		main directory / built software tools
+Makefile	Makefile
+matlab/		Matlab helper scripts
+python/		Python helper functions
+doc/		documentation
+src/		source code
+src/calib 	source code for sensitivity calibration
+src/sense	source code for SENSE or ESPIRiT reconstruction
+src/noir	source code for nonlinear inversion
+src/sake	source code for SAKE reconstruction
+src/wavelet2	source code for wavelets
+src/wavelet3	source code for new wavelets (experimental)
+src/num		base library with numerical functions
+src/iter	iterative algorithms
+src/linops	library of linear operators
+src/misc	miscellaneous (e.g. I/O)
+src/ismrm	support for ISMRM raw data format
+lib/		built software libraries
+
+
+
+
+
+
+
+Getting started:
+
+
+
+# Build the reconstruction tools
+
+make
+
+# Optionally build ISMRM raw data import tool
+make ismrmrd
+
+
+# Set the TOOLBOX_PATH and to the base directoy 
+# and add it to the PATH variable.
+
+. vars.sh
+
+
+
+% Examples
+
+% Download and unpack the examples which demonstrate
+% interoperability with Matlab.
+
+% In Matlab run:
+% (you need to start Matlab with TOOLBOX_PATH set, e.g. from a
+% terminal after typing '. vars.sh' to setup the paths)
+
+examples
+
+
+% Use Matlab to read and visualize/process files.
+
+% Setup the path in Matlab:
+
+addpath(strcat(getenv('TOOLBOX_PATH'), '/matlab'));
+
+% Read data file xyz (see below):
+
+A = readcfl('xyz');	% use name 'xyz' without file extension
+
+
+
+
+
+
+
+Data format:
+
+The input and output datasets are each stored in a pair of files: one
+header (*.hdr) and one raw data (*.cfl). The header is a simple text
+readable file that describes the dimensions of the data. The raw data
+file is a binary file containing a single contiguous block of array
+data of dimensions described in the header stored in column-major order
+(first index is sequential). The raw data file is complex float 
+(32 bit real + 32 bit imaginary, IEEE 747 binary32 little-endian).
+
+Convenience methods to read and write our data files using Matlab may
+be found in recon/matlab (readcfl.m and writecfl.m).
+
+
+
+
+Command-line tools:
+
+All tools operate on the simple file format given above. Indices and
+dimensions run from 0 to N-1. Sometimes a set of dimensions is given
+as a bitmask where the lowest bit corresponds to the 0st dimension.
+
+
+For example, an inverse Fourier transform of first three dimensions can
+be performed with the following command:
+
+
+$ fft -i 7 kspace volume
+
+
+More information about each command can be found in 'doc/commands.txt'.
+
+
+
+
+
+Reference:
+
+
+Uecker M, Virtue P, Ong F, Murphy MJ, Alley MT, Vasanawala SS, Lustig M,
+Software Toolbox and Programming Library for Compressed Sensing and
+Parallel Imaging, ISMRM Workshop on Data Sampling and Image
+Reconstruction, Sedona 2013
+
+
+
+
+
